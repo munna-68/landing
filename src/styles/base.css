@@ -1,0 +1,398 @@
+/* ==========================================================================
+   Tokens
+   ========================================================================== */
+:root {
+  --primary: #151515;
+  --white: #ffffff;
+  --accent: #f47920;
+  --light-green: #ebf0ed;
+  --gray: #e0e0e0;
+  --card-dark: #1e1e1e;
+
+  --font-display: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --ease: cubic-bezier(0.6, 0, 0, 1);
+  --site-margin: 2em;
+
+  /* Fluid type scale (same system as the reference):
+     1em = viewport width / (ideal width / 16), clamped per breakpoint */
+  --size-unit: 16;
+  --size-container-ideal: 1440;
+  --size-container-min: 992px;
+  --size-container-max: 1920px;
+  --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+  --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+}
+
+@media (max-width: 991px) {
+  :root {
+    --size-container-ideal: 834;
+    --size-container-min: 768px;
+    --size-container-max: 991px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --size-container-ideal: 550;
+    --size-container-min: 480px;
+    --size-container-max: 767px;
+    --site-margin: 1em;
+  }
+}
+@media (max-width: 479px) {
+  :root {
+    --size-container-ideal: 390;
+    --size-container-min: 320px;
+    --size-container-max: 479px;
+  }
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+html {
+  color-scheme: only light;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background-color: var(--primary);
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-size: var(--size-font);
+  font-weight: 500;
+  line-height: 1;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: inherit;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+p,
+blockquote {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Type
+   ========================================================================== */
+.h1-span {
+  display: block;
+  font-size: 3.5em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.body-xxl,
+.body-xl {
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.body-l {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.body-m {
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.body-s {
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.eyebrow-s,
+.is-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7em;
+  font-weight: 300;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.eyebrow-m {
+  font-family: var(--font-mono);
+  font-size: 0.75em;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.eyebrow-l {
+  font-family: var(--font-mono);
+  font-size: 0.75em;
+  font-weight: 300;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.is-o-30 {
+  opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+  .h1-span {
+    font-size: 2.5em;
+  }
+  .body-xxl,
+  .body-xl {
+    font-size: 2em;
+    line-height: 1.05;
+  }
+  .body-l {
+    font-size: 1.5em;
+  }
+  .body-m {
+    font-size: 1.125em;
+  }
+  .body-s {
+    font-size: 0.875em;
+  }
+  .eyebrow-s,
+  .is-eyebrow,
+  .eyebrow-m,
+  .eyebrow-l {
+    font-size: 0.625em;
+  }
+}
+
+/* ==========================================================================
+   Eyebrow tags (S.01 / LABEL)
+   ========================================================================== */
+.eyebrows {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15em;
+}
+.is-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--primary);
+  border-radius: 0.25em;
+  padding: 0.2em 0.3em 0.25em;
+  white-space: nowrap;
+}
+.is-eyebrow.is-black {
+  background-color: var(--primary);
+  color: var(--white);
+}
+.is-eyebrow.is-white {
+  border-color: var(--white);
+  color: var(--white);
+}
+.is-eyebrow.is-white-fill {
+  border-color: var(--white);
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.button {
+  --btn-bg: var(--primary);
+  --btn-text: var(--white);
+  --btn-arrow-bg: var(--white);
+  --btn-arrow-fg: var(--primary);
+  display: inline-flex;
+  width: fit-content;
+  overflow: hidden;
+  border-radius: 0.5em;
+  clip-path: inset(0 round 0.5em);
+  contain: paint;
+  background-color: var(--btn-bg);
+  text-transform: uppercase;
+  transition: background-color 0.5s var(--ease);
+}
+.button.is-white {
+  --btn-bg: var(--white);
+  --btn-text: var(--primary);
+  --btn-arrow-bg: var(--primary);
+  --btn-arrow-fg: var(--white);
+}
+.button_inner {
+  display: flex;
+  align-items: center;
+  padding: 0.25em;
+}
+.button-inner_content {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.75em;
+  height: 2em;
+  padding-left: 0.75em;
+  transition: transform 0.5s var(--ease);
+}
+/* arrow-1 waits just outside the left edge; the hover slide brings it in */
+.button_arrow.is-1 {
+  position: absolute;
+  right: 100%;
+  top: 0;
+}
+.button_label {
+  color: var(--btn-text);
+  font-family: var(--font-mono);
+  font-size: 0.8125em;
+  font-weight: 300;
+  line-height: 0.8;
+  white-space: nowrap;
+  transition: color 0.5s var(--ease);
+}
+.button_arrow {
+  display: grid;
+  flex: none;
+  place-items: center;
+  flex: none;
+  width: 2em;
+  height: 2em;
+  border-radius: 0.3em;
+  background-color: var(--btn-arrow-bg);
+}
+.button_arrow svg {
+  width: 0.55em;
+  fill: var(--btn-arrow-fg);
+}
+@media (hover: hover) and (min-width: 992px) {
+  /* Reference: label block slides right (0.5s), revealing arrow-1 and pushing arrow-2 out */
+  .button:hover .button-inner_content {
+    transform: translateX(2em);
+  }
+  .card:hover .button-sm {
+    background-color: var(--accent);
+  }
+  .card:hover .button-sm_inner {
+    transform: translateX(0.25em);
+  }
+  .button:hover {
+    --btn-bg: var(--accent);
+    --btn-text: var(--primary);
+    --btn-arrow-bg: var(--primary);
+    --btn-arrow-fg: var(--accent);
+  }
+}
+
+/* Small pill button (hero cards) */
+.button-sm {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--white);
+  color: var(--primary);
+  padding: 0.25em;
+  transition: background-color 0.5s var(--ease);
+}
+.button-sm_inner {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  transform: translateX(-0.75em);
+  transition: transform 0.5s var(--ease);
+  font-family: var(--font-mono);
+  font-size: 0.7em;
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.button-sm_inner svg {
+  width: 0.8em;
+  fill: currentColor;
+}
+
+/* Generic line icon */
+.icon {
+  width: 1.75em;
+  height: 1.75em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Social squares */
+.social svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+.social svg > rect:first-child {
+  fill: currentColor;
+}
+.social .ink {
+  fill: none;
+  stroke: var(--social-ink, var(--primary));
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* SplitText helpers */
+.split-line {
+  display: block;
+}
+.split-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.split-char {
+  display: inline-block;
+}

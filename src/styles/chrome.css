@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Page card: the Lenis wrapper and ScrollTrigger scroller.
+   The menu animates THIS element (y + scale + radius) to reveal .nav-inner behind it.
+   ========================================================================== */
+.page-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  background-color: var(--white);
+  transform-origin: 50% 0%;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.page-wrap::-webkit-scrollbar {
+  display: none;
+}
+/* hidden (not clip!): clip turns off the scroll container and resets scrollTop to 0 */
+.page-wrap.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: hidden;
+}
+/* Opened menu: the whole card is a "close" target */
+html[data-menu-open='true'] .page-wrap {
+  cursor: pointer;
+}
+html[data-menu-open='true'] .content-wrap {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+.navbar {
+  /* Theme colours, tweened by JS as sections pass under the bar */
+  --nav-fg: var(--white);
+  --logo-bg: transparent;
+  --logo-fg: var(--white);
+  --logo-ink: var(--primary);
+  --icon-bg: transparent;
+  --icon-border: var(--white);
+  --icon-bars: var(--white);
+
+  position: fixed;
+  z-index: 998;
+  top: 1.5em;
+  left: var(--site-margin);
+  right: var(--site-margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  color: var(--nav-fg);
+  pointer-events: none;
+}
+.navbar > * {
+  pointer-events: auto;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  height: 2em;
+  padding: 0 0.45em 0 0.2em;
+  border-radius: 0.3em;
+  border: 1px solid var(--logo-fg);
+  background-color: var(--logo-bg);
+  color: var(--logo-fg);
+}
+.logo_mark {
+  display: grid;
+  place-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 0.2em;
+  background-color: var(--logo-fg);
+}
+.logo-mark {
+  width: 70%;
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.logo_mark .logo-mark {
+  stroke: var(--logo-ink);
+}
+.logo_text {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  font-size: 1.05em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.logo_row {
+  display: flex;
+}
+.logo_row span {
+  display: inline-block;
+}
+.logo_row.is-2 {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  color: var(--nav-fg);
+}
+.menu-btn_label-wrap {
+  display: block;
+  height: 1.15em;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.menu-btn_label-inner {
+  display: flex;
+  flex-direction: column;
+}
+.menu-icon {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1000px;
+  border: 1px solid var(--icon-border);
+  background-color: var(--icon-bg);
+}
+.menu-icon_bar {
+  position: absolute;
+  left: 50%;
+  width: 1.3125rem;
+  height: 1px;
+  margin-left: -0.65625rem;
+  background-color: var(--icon-bars);
+}
+.menu-icon_bar.is-1 {
+  top: 42%;
+}
+.menu-icon_bar.is-2 {
+  bottom: 42%;
+}
+
+/* ==========================================================================
+   Menu (behind the page card)
+   ========================================================================== */
+.nav-inner {
+  position: fixed;
+  z-index: 0;
+  top: 13.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0 var(--site-margin);
+}
+.links {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.link-item {
+  display: flex;
+  align-items: center;
+  height: 2.3em;
+  overflow: hidden;
+}
+.navlink {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  /* icon (1.5em) + gap wait off the left edge; hover slides them in */
+  transform: translateX(-2.3em);
+}
+.navlink.is-plain {
+  transform: none;
+  gap: 0.35em;
+}
+.navlink_icon {
+  flex: none;
+  width: 1.5em;
+  height: 1.5em;
+}
+.navlink_icon rect {
+  fill: var(--accent);
+}
+.navlink_icon path {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.navlink_label {
+  display: block;
+  color: var(--white);
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.navlink_label.is-current {
+  color: var(--accent);
+}
+.socials {
+  --social-ink: var(--primary);
+  color: var(--white);
+  gap: 0.4em;
+}
+
+@media (hover: hover) and (min-width: 992px) {
+  .navlink:not(.is-plain) {
+    transition: transform 0.5s var(--ease);
+  }
+  .navlink:not(.is-plain):hover,
+  .navlink:not(.is-plain):focus-visible {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 991px) {
+  .nav-inner {
+    top: 7.5em;
+    flex-direction: column;
+    gap: 1.2em;
+  }
+}
+
+/* ==========================================================================
+   Loader / intro
+   ========================================================================== */
+.loader {
+  display: none;
+}
+.js .loader {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background-color: var(--primary);
+  pointer-events: none;
+}
+.loader_box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 3.25em;
+  height: 3.25em;
+  overflow: hidden;
+  border-radius: 0.5em;
+  font-size: 1.25em;
+}
+.loader_box::after {
+  /* hairline outline that appears once the wordmark arrives */
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--white);
+  border-radius: inherit;
+  opacity: var(--outline, 0);
+}
+.loader_icon {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3.25em;
+  height: 3.25em;
+}
+.loader_square {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  translate: -50% -50%;
+  border-radius: 0.5em;
+  background-color: var(--white);
+}
+.loader_icon .logo-mark {
+  position: relative;
+  width: 55%;
+  stroke: var(--primary);
+}
+.loader_text {
+  display: flex;
+  flex: none;
+  overflow: hidden;
+  padding: 0 0.6em 0 0.5em;
+  color: var(--white);
+  font-size: 1.6em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.loader_text span {
+  display: inline-block;
+}
+
+/* Hide intro-animated hero pieces until GSAP takes over (prevents a flash of the final state) */
+.js:not(.reduced-motion) .h1-span,
+.js:not(.reduced-motion) .hero_stat .eyebrow-l,
+.js:not(.reduced-motion) .hero_cards .card {
+  visibility: hidden;
+}

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- PLACEHOLDER COPY: page title + description -->
+    <title>Northline | Heavy Engineering Contractor</title>
+    <meta name="description" content="Placeholder description for an engineering and construction contractor landing page." />
+    <meta name="theme-color" content="#151515" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Inter+Tight:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href="/assets/images/hero.jpg" fetchpriority="high" />
+    <style>
+      /* Critical: until the main stylesheet has loaded, show only the dark loader backdrop */
+      html.js body { background: #151515; margin: 0; }
+      html.js:not(.is-styled) body > * { visibility: hidden; }
+    </style>
+    <script>
+      // Flag JS early so the intro states are applied before first paint (no flash of final layout).
+      document.documentElement.classList.add('js');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reduced-motion');
+    </script>
+  </head>
+  <body>
+    <!-- ============================================================
+         LOADER / INTRO
+         ============================================================ -->
+    <div class="loader" aria-hidden="true">
+      <div class="loader_box">
+        <div class="loader_icon">
+          <div class="loader_square"></div>
+          <svg viewBox="0 0 24 24" class="logo-mark"><path d="M3 20 L12 4 L21 20 Z M8.2 16.5 h7.6" /></svg>
+        </div>
+        <!-- PLACEHOLDER: brand wordmark -->
+        <div class="loader_text"><span>N</span><span>o</span><span>r</span><span>t</span><span>h</span><span>l</span><span>i</span><span>n</span><span>e</span></div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         NAVBAR (fixed, outside the page card so it stays put when the menu opens)
+         ============================================================ -->
+    <nav class="navbar" aria-label="Main">
+      <a href="#top" class="logo" aria-label="Northline home">
+        <span class="logo_mark">
+          <svg viewBox="0 0 24 24" class="logo-mark" aria-hidden="true"><path d="M3 20 L12 4 L21 20 Z M8.2 16.5 h7.6" /></svg>
+        </span>
+        <!-- PLACEHOLDER: brand wordmark (letters are split for the hover roll) -->
+        <span class="logo_text" aria-hidden="true">
+          <span class="logo_row is-1"><span>N</span><span>o</span><span>r</span><span>t</span><span>h</span><span>l</span><span>i</span><span>n</span><span>e</span></span>
+          <span class="logo_row is-2"><span>N</span><span>o</span><span>r</span><span>t</span><span>h</span><span>l</span><span>i</span><span>n</span><span>e</span></span>
+        </span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="menu-btn_label-wrap" aria-hidden="true">
+          <span class="menu-btn_label-inner"><span>Menu</span><span>Menu</span></span>
+        </span>
+        <span class="menu-icon" aria-hidden="true">
+          <span class="menu-icon_bar is-1"></span>
+          <span class="menu-icon_bar is-2"></span>
+        </span>
+        <span class="sr-only">Open menu</span>
+      </button>
+    </nav>
+
+    <!-- ============================================================
+         MENU (sits BEHIND the page card; revealed when the page is pushed down)
+         ============================================================ -->
+    <div class="nav-inner" id="site-menu" inert>
+      <!-- PLACEHOLDER COPY: menu links -->
+      <ul class="links">
+        <li class="link-item"><a class="navlink" href="#services"><svg class="navlink_icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" /><path d="M10 7.5 14.5 12 10 16.5" /></svg><span class="navlink_label">Our Services</span></a></li>
+        <li class="link-item"><a class="navlink" href="#technology"><svg class="navlink_icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" /><path d="M10 7.5 14.5 12 10 16.5" /></svg><span class="navlink_label">Technology</span></a></li>
+        <li class="link-item"><a class="navlink" href="#safety"><svg class="navlink_icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" /><path d="M10 7.5 14.5 12 10 16.5" /></svg><span class="navlink_label">Safety</span></a></li>
+      </ul>
+      <ul class="links">
+        <li class="link-item"><a class="navlink" href="#about"><svg class="navlink_icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" /><path d="M10 7.5 14.5 12 10 16.5" /></svg><span class="navlink_label">About us</span></a></li>
+        <li class="link-item"><a class="navlink" href="#team"><svg class="navlink_icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" /><path d="M10 7.5 14.5 12 10 16.5" /></svg><span class="navlink_label">Our Team</span></a></li>
+        <li class="link-item"><a class="navlink" href="#footer"><svg class="navlink_icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" /><path d="M10 7.5 14.5 12 10 16.5" /></svg><span class="navlink_label">Contact</span></a></li>
+      </ul>
+      <ul class="links">
+        <li class="link-item"><a class="navlink" href="#team"><svg class="navlink_icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" /><path d="M10 7.5 14.5 12 10 16.5" /></svg><span class="navlink_label">Join the Team</span></a></li>
+        <li class="link-item">
+          <div class="navlink is-plain">
+            <a href="#" class="navlink_label is-locale is-current" aria-current="true">En</a>
+            <a href="#" class="navlink_label is-locale">Es</a>
+          </div>
+        </li>
+        <li class="link-item">
+          <div class="navlink is-plain socials">
+            <a href="#" class="social" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" /><path class="ink" d="M7 10v7M7 7v.01M11 17v-7M11 13a3 3 0 0 1 6 0v4" /></svg></a>
+            <a href="#" class="social" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" /><rect class="ink" x="6.5" y="6.5" width="11" height="11" rx="3" /><circle class="ink" cx="12" cy="12" r="2.6" /></svg></a>
+            <a href="#" class="social" aria-label="Facebook"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" /><path class="ink" d="M13.5 18v-6h2l.3-2.3h-2.3V8.4c0-.7.2-1.1 1.1-1.1h1.2V5.2a16 16 0 0 0-1.8-.1c-1.8 0-3 1.1-3 3.1v1.6H9V12h2v6" /></svg></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ============================================================
+         PAGE CARD (Lenis wrapper + ScrollTrigger scroller)
+         ============================================================ -->
+    <div class="page-wrap" id="top">
+      <main class="content-wrap">
+        <!-- ======================= HERO ======================= -->
+        <section class="section_hero" data-theme="hero">
+          <div class="hero-background" aria-hidden="true">
+            <div class="background-inner">
+              <!--
+                VIDEO SLOT: the reference plays an intro video here and scrubs an image
+                sequence on scroll. To use a video, replace the <img> below with:
+                <video class="hero-media" src="/assets/video/hero.mp4" poster="/assets/images/hero.jpg"
+                       autoplay muted loop playsinline preload="auto"></video>
+              -->
+              <img class="hero-media" src="/assets/images/hero.jpg" alt="" width="2400" height="1500" fetchpriority="high" decoding="async" />
+            </div>
+            <div class="hero-dim"></div>
+          </div>
+
+          <div class="hero_content">
+            <!-- PLACEHOLDER COPY: hero headline (keep 2 short lines) -->
+            <h1 class="h1">
+              <span class="h1-line"><span class="h1-span">Your trusted partner</span></span>
+              <span class="h1-line"><span class="h1-span">in heavy engineering</span></span>
+            </h1>
+            <!-- PLACEHOLDER COPY: hero stat -->
+            <div class="hero_stat">
+              <span class="h1-line"><span class="eyebrow-l">Since 2004</span></span>
+              <span class="h1-line"><span class="eyebrow-l">+ 1,200,000 hours on site</span></span>
+            </div>
+          </div>
+
+          <div class="hero_cards">
+            <a href="#services" class="card">
+              <span class="card_img"><img src="/assets/images/hero-card-1.jpg" alt="" width="600" height="400" loading="eager" /></span>
+              <span class="button-sm"><span class="button-sm_inner"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1.5v7l6-3.5z" /></svg><span>Our services</span></span></span>
+            </a>
+            <a href="#technology" class="card">
+              <span class="card_img"><img src="/assets/images/hero-card-2.jpg" alt="" width="600" height="400" loading="eager" /></span>
+              <span class="button-sm"><span class="button-sm_inner"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1.5v7l6-3.5z" /></svg><span>Technology</span></span></span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ======================= ABOUT ======================= -->
+        <section class="section is-white" id="about" data-theme="white">
+          <div class="intro">
+            <div class="eyebrows"><span class="is-eyebrow">S.01</span><span class="is-eyebrow is-black">About us</span></div>
+            <!-- PLACEHOLDER COPY -->
+            <p class="body-xl" data-reveal>Northline is a leading heavy engineering contractor with our head office and central workshop based in the northern region.</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="image-wrapper is-portrait">
+              <img class="image-p" src="/assets/images/about.jpg" alt="Placeholder: crew in protective gear on site" width="1100" height="1350" loading="lazy" />
+            </div>
+            <div class="about_side">
+              <!-- PLACEHOLDER COPY: stats -->
+              <div class="stats">
+                <div class="stat"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1.5" /><path d="M3 10h18" /></svg><div><div class="body-l">1M</div><div class="eyebrow-m">Linear meters</div></div></div>
+                <div class="stat"><svg class="icon" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6" /></svg><div><div class="body-l">20M</div><div class="eyebrow-m">Tons of material moved</div></div></div>
+                <div class="stat"><svg class="icon" viewBox="0 0 24 24"><path d="M5 8h14l-2 10H7z" /><path d="M9 8V5h6v3" /></svg><div><div class="body-l">5,1k</div><div class="eyebrow-m">Projects delivered</div></div></div>
+                <div class="stat"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><circle cx="17" cy="9" r="2.4" /><path d="M3 19c.6-3.4 3-5 6-5s5.4 1.6 6 5M15 14.4c2.6-.4 5 .8 6 4.6" /></svg><div><div class="body-l">1,7k</div><div class="eyebrow-m">Team members</div></div></div>
+                <div class="stat"><svg class="icon" viewBox="0 0 24 24"><path d="M4 6h6l2 2h8v10H4z" /></svg><div><div class="body-l">7</div><div class="eyebrow-m">Active sites</div></div></div>
+                <div class="stat"><svg class="icon" viewBox="0 0 24 24"><path d="M3 7h7l2 2h9v10H3z" /><path d="M3 11h18" /></svg><div><div class="body-l">36</div><div class="eyebrow-m">Years combined</div></div></div>
+              </div>
+              <div class="about_text">
+                <!-- PLACEHOLDER COPY -->
+                <p class="body-s">With over 20 years of experience, we specialize in heavy civil works for public and private clients, primarily focused on infrastructure, structural support and large-scale earthworks. We combine a strong safety culture, modern equipment, and a deep commitment to quality to deliver consistent, high-performance results.</p>
+                <a href="#services" class="button"><span class="button_inner"><span class="button-inner_content"><span class="button_arrow is-1"><svg viewBox="0 0 10 10"><path d="M2 1.5v7l6-3.5z" /></svg></span><span class="button_label">About us</span><span class="button_arrow is-2"><svg viewBox="0 0 10 10"><path d="M2 1.5v7l6-3.5z" /></svg></span></span></span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================= SERVICES ======================= -->
+        <section class="section is-lightgreen" id="services" data-theme="lightgreen">
+          <div class="intro">
+            <div class="eyebrows"><span class="is-eyebrow">S.02</span><span class="is-eyebrow is-black">Our services</span></div>
+            <!-- PLACEHOLDER COPY -->
+            <p class="body-xl" data-reveal>Drawing on deep technical insight and engineering expertise, we partner with clients to turn complex sites into reliable, operational assets.</p>
+          </div>
+
+          <div class="cards-grid" data-cards="services">
+            <!-- PLACEHOLDER COPY: service cards (title + short description) -->
+            <article class="service-card" data-image="0">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1" /><path d="M4 9h16M9 9v11" /></svg>
+              <div class="card_text"><h3 class="body-l">Engineering</h3><p class="body-s card_desc">Planning, design and technical studies that set every project up for safe, efficient execution.</p></div>
+            </article>
+            <article class="service-card" data-image="1">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M5 4h14M5 20h14M8 4l8 16M16 4 8 20" /></svg>
+              <div class="card_text"><h3 class="body-l">Structural Support &amp; Reinforcement</h3><p class="body-s card_desc">Ground stabilisation and structural reinforcement for demanding conditions.</p></div>
+            </article>
+            <article class="service-card" data-image="2">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" /><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" /></svg>
+              <div class="card_text"><h3 class="body-l">Development</h3><p class="body-s card_desc">Site development and access works delivered on schedule and to specification.</p></div>
+            </article>
+            <article class="service-card" data-image="3">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="16" rx="1" /><circle cx="16.5" cy="15.5" r="3" /><path d="M14 4h6v6h-6z" /></svg>
+              <div class="card_text"><h3 class="body-l">Production</h3><p class="body-s card_desc">High-output operations backed by experienced crews and a modern fleet.</p></div>
+            </article>
+            <article class="service-card" data-image="4">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="5" cy="7" r="2" /><circle cx="19" cy="17" r="2" /><path d="M7 7h8a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8" /></svg>
+              <div class="card_text"><h3 class="body-l">Logistics</h3><p class="body-s card_desc">Material handling and transport planned around safety and uptime.</p></div>
+            </article>
+            <div class="cards-viewer">
+              <img class="viewer-image" src="/assets/images/service-1.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <img class="viewer-image" src="/assets/images/service-2.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <img class="viewer-image is-default" src="/assets/images/service-3.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <img class="viewer-image" src="/assets/images/service-4.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <img class="viewer-image" src="/assets/images/service-5.jpg" alt="" width="1200" height="900" loading="lazy" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================= MATERIALS (pinned stage) ======================= -->
+        <section class="section_minerals" data-theme="white" aria-labelledby="minerals-title">
+          <div class="minerals-stage">
+            <div class="minerals_sticky">
+              <div class="eyebrows minerals_eyebrows"><span class="is-eyebrow">S.03</span><span class="is-eyebrow is-black" id="minerals-title">Materials</span></div>
+              <div class="minerals_left">
+                <!-- PLACEHOLDER COPY -->
+                <span class="eyebrow-m">Materials we work with</span>
+                <ul class="minerals-names">
+                  <li class="body-xxl is-active">Granite</li>
+                  <li class="body-xxl">Basalt</li>
+                  <li class="body-xxl">Quartz</li>
+                  <li class="body-xxl">Copper</li>
+                  <li class="body-xxl">Iron</li>
+                </ul>
+              </div>
+              <div class="minerals_center">
+                <svg class="minerals_ring" viewBox="0 0 200 200" aria-hidden="true"></svg>
+                <div class="minerals_progress" aria-hidden="true"></div>
+                <div class="minerals-slider">
+                  <!-- IMAGE SLOTS mineral-1..5. Reference uses a rotating 3D image sequence here; swap in cut-out renders if you have them. -->
+                  <div class="minerals-slider_inner">
+                    <img class="minerals-slider_img" src="/assets/images/mineral-1.jpg" alt="" width="1000" height="1000" loading="lazy" />
+                    <img class="minerals-slider_img" src="/assets/images/mineral-2.jpg" alt="" width="1000" height="1000" loading="lazy" />
+                    <img class="minerals-slider_img" src="/assets/images/mineral-3.jpg" alt="" width="1000" height="1000" loading="lazy" />
+                    <img class="minerals-slider_img" src="/assets/images/mineral-4.jpg" alt="" width="1000" height="1000" loading="lazy" />
+                    <img class="minerals-slider_img" src="/assets/images/mineral-5.jpg" alt="" width="1000" height="1000" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+              <div class="minerals_right">
+                <span class="eyebrow-m eyebrow-roll">
+                  <span class="eyebrow-slider"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></span>
+                </span>
+                <span class="eyebrow-m">/</span>
+                <span class="eyebrow-m eyebrow-roll">
+                  <span class="eyebrow-slider"><span>Granite</span><span>Basalt</span><span>Quartz</span><span>Copper</span><span>Iron</span></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================= SAFETY ======================= -->
+        <section class="section is-white" id="safety" data-theme="white">
+          <div class="intro">
+            <div class="eyebrows"><span class="is-eyebrow">S.04</span><span class="is-eyebrow is-black">Safety policy</span></div>
+            <!-- PLACEHOLDER COPY -->
+            <p class="body-xl" data-reveal>At Northline, we believe every incident and occupational illness can be prevented, which is why we direct our efforts toward decisions and actions that protect our people, our partners and our assets.</p>
+          </div>
+          <div class="grid-2 safety_grid">
+            <div class="image-wrapper is-square">
+              <img class="image-p" src="/assets/images/safety.jpg" alt="Placeholder: worker in orange safety gear" width="1100" height="1100" loading="lazy" />
+            </div>
+            <div class="safety_side">
+              <div class="safety_sticky">
+                <!-- PLACEHOLDER COPY -->
+                <p class="body-m">To this end, we are committed to providing everyone on our sites with a safe and healthy workplace.</p>
+                <a href="#team" class="button"><span class="button_inner"><span class="button-inner_content"><span class="button_arrow is-1"><svg viewBox="0 0 10 10"><path d="M2 1.5v7l6-3.5z" /></svg></span><span class="button_label">Safety policy</span><span class="button_arrow is-2"><svg viewBox="0 0 10 10"><path d="M2 1.5v7l6-3.5z" /></svg></span></span></span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================= TECHNOLOGY ======================= -->
+        <section class="section is-lightgreen" id="technology" data-theme="lightgreen">
+          <div class="intro">
+            <div class="eyebrows"><span class="is-eyebrow">S.05</span><span class="is-eyebrow is-black">Technology</span></div>
+            <!-- PLACEHOLDER COPY -->
+            <p class="body-xl" data-reveal>Our fleet includes more than 300 specialized machines across every key category. Each unit is selected for durability, safety, and adaptability in tight, high-stakes environments.</p>
+          </div>
+
+          <div class="display-text">
+            <!-- PLACEHOLDER COPY: big display title (2 short lines) -->
+            <h2 class="title-big" aria-label="Over 300 machines">
+              <span class="title-line" aria-hidden="true">Over 300</span>
+              <span class="title-line" aria-hidden="true">machines</span>
+            </h2>
+            <span class="eyebrow-m display-eyebrow">Built for demanding work</span>
+          </div>
+
+          <!-- PLACEHOLDER COPY: machine names + descriptions -->
+          <ul class="machines-grid">
+            <li class="machine-card"><div class="machine-card_bg"><img class="machine-img" src="/assets/images/tech-1.jpg" alt="" width="800" height="1150" loading="lazy" /></div><div class="machine-card_name"><span class="body-m">Motor Grader</span><span class="body-s machine-card_desc">Precision grading for roads, ramps and working platforms.</span></div></li>
+            <li class="machine-card"><div class="machine-card_bg"><img class="machine-img" src="/assets/images/tech-2.jpg" alt="" width="800" height="1150" loading="lazy" /></div><div class="machine-card_name"><span class="body-m">Telehandler</span><span class="body-s machine-card_desc">Versatile lifting and placement in confined spaces.</span></div></li>
+            <li class="machine-card"><div class="machine-card_bg"><img class="machine-img" src="/assets/images/tech-3.jpg" alt="" width="800" height="1150" loading="lazy" /></div><div class="machine-card_name"><span class="body-m">Compactor</span><span class="body-s machine-card_desc">Vibratory compaction for stable, long-lasting surfaces.</span></div></li>
+            <li class="machine-card"><div class="machine-card_bg"><img class="machine-img" src="/assets/images/tech-4.jpg" alt="" width="800" height="1150" loading="lazy" /></div><div class="machine-card_name"><span class="body-m">Backhoe Loader</span><span class="body-s machine-card_desc">Digging, loading and trenching in a single unit.</span></div></li>
+            <li class="machine-card"><div class="machine-card_bg"><img class="machine-img" src="/assets/images/tech-5.jpg" alt="" width="800" height="1150" loading="lazy" /></div><div class="machine-card_name"><span class="body-m">Drilling Rig</span><span class="body-s machine-card_desc">Accurate, high-productivity drilling for any face.</span></div></li>
+            <li class="machine-card"><div class="machine-card_bg"><img class="machine-img" src="/assets/images/tech-6.jpg" alt="" width="800" height="1150" loading="lazy" /></div><div class="machine-card_name"><span class="body-m">Haul Truck</span><span class="body-s machine-card_desc">Heavy-duty hauling built for continuous cycles.</span></div></li>
+          </ul>
+        </section>
+
+        <!-- ======================= TEAM ======================= -->
+        <section class="section is-white" id="team" data-theme="white">
+          <div class="eyebrows"><span class="is-eyebrow">S.06</span><span class="is-eyebrow is-black">Our team</span></div>
+
+          <div class="testimonials">
+            <!-- PLACEHOLDER COPY -->
+            <span class="eyebrow-m">Our strength is our people</span>
+            <div class="toggle" role="tablist" aria-label="Testimonials">
+              <span class="toggle-indicator" aria-hidden="true"></span>
+              <button class="toggle-option is-active" role="tab" aria-selected="true">01</button>
+              <button class="toggle-option" role="tab" aria-selected="false">02</button>
+            </div>
+            <div class="testimonial-stack">
+              <!-- PLACEHOLDER COPY: quotes -->
+              <blockquote class="testimonial is-active">
+                <p class="body-xl quote">“I enjoy working here because the company has a strong reputation both locally and nationally. I am proud to represent it every day.”</p>
+                <p class="body-xl is-o-30 author">by Placeholder Name</p>
+              </blockquote>
+              <blockquote class="testimonial">
+                <p class="body-xl quote">“Thanks to this team, I have been able to grow my skills, take on new challenges, and build a career I am genuinely proud of.”</p>
+                <p class="body-xl is-o-30 author">by Placeholder Name</p>
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="cards-grid" data-cards="team">
+            <!-- PLACEHOLDER COPY: team cards -->
+            <button class="team-card" data-image="0" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1" /></svg>
+              <span class="card_text"><span class="body-l">Operations</span><span class="body-s card_desc">Crews who keep every site productive, day and night.</span></span>
+            </button>
+            <button class="team-card" data-image="1" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M6 4h12l3 5-9 11L3 9z" /><path d="M3 9h18M9 4l3 16 3-16" /></svg>
+              <span class="card_text"><span class="body-l">Quality Processes</span><span class="body-s card_desc">Inspection and control at every step of delivery.</span></span>
+            </button>
+            <button class="team-card" data-image="2" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z" /><path d="m8.5 12 2.5 2.5 4.5-5" /></svg>
+              <span class="card_text"><span class="body-l">Security</span><span class="body-s card_desc">Protecting people, equipment and information.</span></span>
+            </button>
+            <button class="team-card" data-image="3" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.6 2.6-2.4-.6-.6-2.4z" /></svg>
+              <span class="card_text"><span class="body-l">Maintenance</span><span class="body-s card_desc">Keeping our fleet ready for the next shift.</span></span>
+            </button>
+            <button class="team-card" data-image="4" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M3 7h7l2 2h9v10H3z" /></svg>
+              <span class="card_text"><span class="body-l">Administration &amp; Resources</span><span class="body-s card_desc">The people behind planning, people and finance.</span></span>
+            </button>
+            <div class="cards-viewer is-team">
+              <img class="viewer-image" src="/assets/images/team-1.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <img class="viewer-image" src="/assets/images/team-2.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <img class="viewer-image" src="/assets/images/team-3.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <img class="viewer-image" src="/assets/images/team-4.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <img class="viewer-image" src="/assets/images/team-5.jpg" alt="" width="1200" height="900" loading="lazy" />
+              <a href="#footer" class="button is-viewer-button"><span class="button_inner"><span class="button-inner_content"><span class="button_arrow is-1"><svg viewBox="0 0 10 10"><path d="M2 1.5v7l6-3.5z" /></svg></span><span class="button_label">Job offers</span><span class="button_arrow is-2"><svg viewBox="0 0 10 10"><path d="M2 1.5v7l6-3.5z" /></svg></span></span></span></a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================= PARTNERS (pinned 3D cylinder) ======================= -->
+        <section class="section_partners" data-theme="white">
+          <div class="partners_top">
+            <div class="intro">
+              <div class="eyebrows"><span class="is-eyebrow">S.07</span><span class="is-eyebrow is-black">Our partners</span></div>
+              <!-- PLACEHOLDER COPY -->
+              <p class="body-xl" data-reveal>Leading companies trust Northline to carry out their most demanding projects with safety, precision, and proven results.</p>
+            </div>
+          </div>
+          <div class="cylinder">
+            <div class="cylinder_sticky">
+              <div class="scroll-indicator is-left" aria-hidden="true"></div>
+              <!-- PLACEHOLDER COPY: partner names -->
+              <ul class="cylinder_wrapper" aria-label="Partners">
+                <li class="cylinder_item">Alpha Holdings</li>
+                <li class="cylinder_item">Bravo Industries</li>
+                <li class="cylinder_item">Charlie Resources</li>
+                <li class="cylinder_item">Delta Materials</li>
+                <li class="cylinder_item">Echo Partners</li>
+                <li class="cylinder_item">Foxtrot Group</li>
+                <li class="cylinder_item">Golf Engineering</li>
+                <li class="cylinder_item">Hotel Works Inc.</li>
+                <li class="cylinder_item">India Infrastructure</li>
+                <li class="cylinder_item">Juliet Metals</li>
+                <li class="cylinder_item">Kilo Construction</li>
+                <li class="cylinder_item">Lima Logistics</li>
+              </ul>
+              <div class="scroll-indicator is-right" aria-hidden="true"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================= NEXT (CTA) ======================= -->
+        <section class="section_next" data-theme="black">
+          <div class="next_bg"><img class="image-p" src="/assets/images/next.jpg" alt="" width="2000" height="1500" loading="lazy" /></div>
+          <div class="eyebrows next_eyebrows"><span class="is-eyebrow is-white">Next</span><span class="is-eyebrow is-white-fill">Our services</span></div>
+          <a href="#services" class="button is-white"><span class="button_inner"><span class="button-inner_content"><span class="button_arrow is-1"><svg viewBox="0 0 10 10"><path d="M2 1.5v7l6-3.5z" /></svg></span><span class="button_label">Our services</span><span class="button_arrow is-2"><svg viewBox="0 0 10 10"><path d="M2 1.5v7l6-3.5z" /></svg></span></span></span></a>
+        </section>
+
+        <!-- ======================= FOOTER ======================= -->
+        <footer class="footer" id="footer" data-theme="white">
+          <div class="footer_top">
+            <div class="footer_brand">
+              <a href="#top" class="footer_logo" aria-label="Northline home">
+                <span class="logo_mark"><svg viewBox="0 0 24 24" class="logo-mark" aria-hidden="true"><path d="M3 20 L12 4 L21 20 Z M8.2 16.5 h7.6" /></svg></span>
+                <span class="footer_wordmark">Northline</span>
+              </a>
+              <div class="footer_socials">
+                <a href="#" class="social" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" /><path class="ink" d="M7 10v7M7 7v.01M11 17v-7M11 13a3 3 0 0 1 6 0v4" /></svg></a>
+                <a href="#" class="social" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" /><rect class="ink" x="6.5" y="6.5" width="11" height="11" rx="3" /><circle class="ink" cx="12" cy="12" r="2.6" /></svg></a>
+                <a href="#" class="social" aria-label="Facebook"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" /><path class="ink" d="M13.5 18v-6h2l.3-2.3h-2.3V8.4c0-.7.2-1.1 1.1-1.1h1.2V5.2a16 16 0 0 0-1.8-.1c-1.8 0-3 1.1-3 3.1v1.6H9V12h2v6" /></svg></a>
+              </div>
+            </div>
+            <!-- PLACEHOLDER COPY: footer columns -->
+            <div class="footer_col"><span class="is-eyebrow">Explore</span><a class="footer-link" href="#services">Our Services</a><a class="footer-link" href="#technology">Technology</a><a class="footer-link" href="#safety">Safety</a><a class="footer-link" href="#about">About us</a><a class="footer-link" href="#team">Join the Team</a></div>
+            <div class="footer_col"><span class="is-eyebrow">Library</span><a class="footer-link" href="#">Blog</a></div>
+            <div class="footer_col"><span class="is-eyebrow">Legal</span><a class="footer-link" href="#">Privacy Notice</a></div>
+            <div class="footer_col"><span class="is-eyebrow">Contact</span><a class="footer-link" href="#">Contact</a><a class="footer-link" href="mailto:hello@example.com">hello@example.com</a><a class="footer-link" href="tel:+10000000000">+1 000 000 0000</a></div>
+          </div>
+          <div class="footer_bottom">
+            <!-- PLACEHOLDER COPY -->
+            <p class="footer-p">© 2026 Northline — Placeholder legal line. All rights reserved.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
